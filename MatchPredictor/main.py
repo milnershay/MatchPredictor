@@ -13,8 +13,8 @@ with open('models/GradientBoostingClassifier.pkl', 'rb') as file:
     model2 = pickle.load(file)
 with open('models/KNeighborsClassifier.pkl', 'rb') as file:
     model3 = pickle.load(file)
-with open('models/RandomForestClassifier.pkl', 'rb') as file:
-    model4 = pickle.load(file)
+#with open('models/RandomForestClassifier.pkl', 'rb') as file:
+#    model4 = pickle.load(file)
 
 X_test = pd.read_csv('data/X_test.csv')
 y_test = pd.read_csv('data/y_test.csv')
@@ -77,8 +77,8 @@ def predict_match():
         selected_model = model2
     elif selected_model == type(model3).__name__:
         selected_model = model3
-    elif selected_model == type(model4).__name__:
-        selected_model = model4
+#    elif selected_model == type(model4).__name__:
+#        selected_model = model4
 
     # Prepare the input data for prediction
     input_data = X_test.loc[(X_test['home_team_api_id'] == home_team_api_id) & (X_test['away_team_api_id'] == away_team_api_id)].drop(['home_team_api_id', 'away_team_api_id'], axis=1)
